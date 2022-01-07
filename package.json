@@ -25,7 +25,8 @@
 		"canvas-confetti": "^1.4.0",
 		"map-obj": "^5.0.0",
 		"pinia": "^2.0.0-rc.10",
-		"vue": "^3.2.25"
+		"vue": "^3.2.25",
+		"vue-router": "^4.0.12"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
@@ -55,10 +56,6 @@
 		"vite": "^2.7.2",
 		"vite-tsconfig-paths": "^3.3.17",
 		"vue-tsc": "^0.30.2"
-	},
-	"simple-git-hooks": {
-		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
-		"pre-push": "if [[ $(git branch --show-current) == 'main' ]]; then node --loader ts-node/esm ./scripts/hooks/pre-push.ts; fi"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": [

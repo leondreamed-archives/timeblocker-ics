@@ -113,8 +113,8 @@ function onDrop(event: DragEvent) {
 	const data = JSON.parse(dropData) as unknown;
 	if (isParticleDrop(data)) {
 		const { payload } = data;
-		if (payload.sourceCell !== undefined) {
-			const { row: sourceRow, column: sourceColumn } = payload.sourceCell;
+		if (payload.source.type === 'grid') {
+			const { row: sourceRow, column: sourceColumn } = payload.source;
 			const sourceParticleId = store.getParticleGridCell({
 				column: sourceColumn,
 				row: sourceRow,
@@ -136,6 +136,15 @@ function onDrop(event: DragEvent) {
 					});
 				}
 			}
+		} else if (payload.source.type === 'dock') {
+			const { index } = payload.source;
+
+			// Move the current particle to the dock
+			if (props.currentParticleId === undefined) {
+				store.particleDock.splice(index, 1);
+			} else {
+				store.particleDock.splice(index, 1, props.currentParticleId);
+			}
 		}
 
 		store.setParticleGridCell({
@@ -154,7 +163,8 @@ function onDragStart(event: DragEvent) {
 				type: 'particle-drop',
 				payload: {
 					particleId: props.currentParticleId,
-					sourceCell: {
+					source: {
+						type: 'grid',
 						row: props.row,
 						column: props.column,
 					},
@@ -163,36 +173,26 @@ function onDragStart(event: DragEvent) {
 		);
 	}
 }
+
 </script>
 
 <template>
 	<div
-		class="p-2"
+		class="p-2 flex-grow"
 		:draggable="currentParticleId !== undefined"
 		@dragstart="onDragStart"
 		@drop.prevent="onDrop"
 		@dragover.prevent
 	>
 		<div
-			class="rounded-md h-40 w-40 border-2 column justify-between"
+			class="rounded-md h-10 border-2 row justify-between"
 			:class="particleContainerClasses"
 		>
-			<div class="row justify-between text-xs p-2">
-				<span><strong>Charge:</strong> {{ answerParticleInfo.charge }}</span>
-				<span><strong>Spin:</strong> {{ answerParticleInfo.spin }}</span>
-			</div>
-
 			<ParticleBubble
 				v-if="currentParticleId !== undefined"
 				class="self-center"
 				:particle-id="currentParticleId"
 			/>
-
-			<div class="text-center text-sm pb-1">
-				<strong>Mass: </strong>
-				<!-- eslint-disable-next-line vue/no-v-html -->
-				<span v-html="answerParticleInfo.mass"></span>
-			</div>
 		</div>
 	</div>
 </template>

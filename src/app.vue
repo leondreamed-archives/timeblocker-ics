@@ -26,6 +26,7 @@ watch(store.particleGrid, () => {
 
 <template>
 	<div class="column h-full">
+		<div class='font-bold text-6xl text-center mt-2'>Schedule</div>
 		<ParticleGrid class="m-auto" />
 		<ParticleDock />
 	</div>
