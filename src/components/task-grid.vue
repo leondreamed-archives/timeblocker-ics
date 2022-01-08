@@ -14,7 +14,7 @@ const times = [...Array.from({ length: 24 }).keys()].map(
 		<div
 			class="grid grid-cols-[max-content,auto] p-2 w-full mx-auto items-center"
 		>
-			<template v-for="(taskId, rowIndex) of store.timesGrid" :key="taskId">
+			<template v-for="(taskId, rowIndex) of store.timesGrid" :key="rowIndex">
 				<div style="grid-column-start: 1" class="text-center">
 					{{ times[rowIndex] }}
 				</div>
