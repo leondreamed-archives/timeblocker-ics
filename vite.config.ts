@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-	base: '/timeblocker/',
+	base: '/timeblocker-ics/',
 	resolve: {
 		alias: {
 			'~': path.resolve(new URL('.', import.meta.url).pathname, './src'),
