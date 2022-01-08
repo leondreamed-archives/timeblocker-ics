@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { TaskId, TaskType } from '~/types/tasks';
+import type { TaskId } from '~/types/tasks';
 import { getTaskInfo } from '~/utils/tasks';
 
 const props = defineProps<{ taskId: TaskId }>();
@@ -10,7 +10,7 @@ const taskInfo = computed(() => getTaskInfo(props.taskId));
 
 <template>
 	<div class="w-full h-full row center bg-red-200 font-bold">
-		<div>{{ taskInfo.name }}</div>
+		<div>{{ taskInfo?.name }}</div>
 	</div>
 </template>
 
