@@ -1,5 +1,5 @@
 {
-	"name": "fundamental-tasks",
+	"name": "timeblocker-ics",
 	"version": "0.0.0",
 	"prettier": "@leonzalion/prettier-config",
 	"commitlint": {
