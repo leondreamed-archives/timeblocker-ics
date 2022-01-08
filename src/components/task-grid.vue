@@ -11,14 +11,11 @@ const times = [...Array.from({ length: 24 }).keys()].map(
 
 <template>
 	<div class="overflow-y-auto overflow-x-auto column w-full">
-		<div class="grid grid-cols-[max-content,auto] p-2 w-full mx-auto">
-			<div
-				v-for="(taskId, rowIndex) of store.timesGrid"
-				:key="taskId"
-				class="row items-center"
-				:style="{ 'grid-row-start': rowIndex + 1 }"
-			>
-				<div style="grid-column-start: 1">
+		<div
+			class="grid grid-cols-[max-content,auto] p-2 w-full mx-auto items-center"
+		>
+			<template v-for="(taskId, rowIndex) of store.timesGrid" :key="taskId">
+				<div style="grid-column-start: 1" class="text-center">
 					{{ times[rowIndex] }}
 				</div>
 				<TaskGridCell
@@ -26,7 +23,7 @@ const times = [...Array.from({ length: 24 }).keys()].map(
 					:current-task-id="taskId"
 					:row="rowIndex"
 				/>
-			</div>
+			</template>
 		</div>
 	</div>
 </template>

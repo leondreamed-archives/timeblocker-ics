@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { watch } from 'vue';
 import TaskDock from './components/task-dock.vue';
 import TaskGrid from './components/task-grid.vue';
 import { useAppStore } from './store/app';
-import { createConfetti } from './utils/confetti';
+import type { TaskInformation } from './types/tasks';
 
 const store = useAppStore();
-
-// Shoot confetti when the game is completed
-watch(
-	() => store.isComplete,
-	async (isComplete) => {
-		if (isComplete) {
-			await createConfetti();
-		}
-	}
-);
-
-// Reset errors when the grid changes
-watch(store.taskGrid, () => {
-	store.highlightErrors = false;
-	store.isComplete = false;
-});
+const tasks: Array<Omit<TaskInformation, 'id'>> = [
+	{
+		name: 'Finish ICS IA',
+		description: '',
+	},
+	{
+		name: 'Finish English Homework',
+		description: '',
+	},
+	{
+		name: 'Finish Extended Essay',
+		description: '',
+	},
+];
+for (const task of tasks) {
+	store.addTask(task);
+}
 </script>
 
 <template>

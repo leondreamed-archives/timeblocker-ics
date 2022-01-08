@@ -10,31 +10,43 @@ function onDrop(event: DragEvent) {
 	if (dropData !== '') {
 		const data = JSON.parse(dropData) as unknown;
 		if (isTaskDrop(data)) {
-			const { source, taskId } = data.payload;
+			const { source } = data.payload;
 			if (source.type === 'grid') {
-				store.unsetTaskGridCell({
-					column: source.column,
+				store.unsetGridCell({
 					row: source.row,
 				});
-				store.taskDock.push(taskId);
 			}
 		}
+	}
+}
+
+function addTask() {
+	// eslint-disable-next-line no-alert
+	const taskName = prompt('What is the name of this task?');
+	if (taskName !== null) {
+		store.addTask({
+			name: taskName,
+			description: '',
+		});
 	}
 }
 </script>
 
 <template>
 	<div
-		class="column items-center px-2 overflow-x-clip pb-5 pt-3 bg-white border-t-2 border-gray-200 overflow-y-auto"
+		class="column items-center px-2 overflow-x-clip pb-5 pt-3 bg-white border-r-2 border-gray-200 overflow-y-auto"
 		@drop.prevent="onDrop"
 		@dragover.prevent
 	>
 		<span class="font-bold text-3xl text-center">Tasks</span>
-		<div
-			class="column flex-grow z-1"
-			:class="{ 'mb-3': store.taskDock.length > 0 }"
-		>
-			<div v-for="taskId of store.taskDock" :key="taskId">
+		<div class="column flex-grow z-1">
+			<div
+				class="bg-green-500 rounded-md hover:bg-green-600 text-center font-bold text-white px-5 mt-2 mb-1 cursor-pointer py-2 self-center"
+				@click="addTask"
+			>
+				Add Task
+			</div>
+			<div v-for="taskId of store.taskIds" :key="taskId">
 				<TaskBox :task-id="taskId" />
 			</div>
 		</div>

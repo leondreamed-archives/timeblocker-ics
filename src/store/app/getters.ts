@@ -1,5 +1,5 @@
 import type { AppGetterThis } from './types';
 
-export function isGridEmpty(this: AppGetterThis) {
-	return this.taskGrid.flat().every((cell) => cell === undefined);
+export function taskIds(this: AppGetterThis) {
+	return [...this.taskMap.keys()].sort();
 }

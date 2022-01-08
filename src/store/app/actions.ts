@@ -1,5 +1,6 @@
+import { nanoid } from 'nanoid';
 import type { AppActionThis } from './types';
-import type { TaskId } from '~/types/tasks';
+import type { TaskId, TaskInformation } from '~/types/tasks';
 
 export function addTaskToGrid(
 	this: AppActionThis,
@@ -24,4 +25,12 @@ export function setGridCell(
 
 export function unsetGridCell(this: AppActionThis, { row }: { row: number }) {
 	this.timesGrid[row] = undefined;
+}
+
+export function addTask(
+	this: AppActionThis,
+	task: Omit<TaskInformation, 'id'>
+) {
+	const taskId = nanoid() as TaskId;
+	this.taskMap.set(taskId, { ...task, id: taskId });
 }

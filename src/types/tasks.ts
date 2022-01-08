@@ -5,6 +5,7 @@ declare class TaskIdString extends String {
 export type TaskId = string & TaskIdString;
 
 export type TaskInformation = {
+	id: string;
 	name: string;
 	description: string;
 };

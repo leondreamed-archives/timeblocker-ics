@@ -72,7 +72,7 @@ function onDragStart(event: DragEvent) {
 		@dragover.prevent
 	>
 		<div
-			class="rounded-md h-10 border-2 border-red-50 row justify-between bg-red-50"
+			class="rounded-md h-10 border-2 border-red-50 row justify-between bg-red-50 cursor-pointer"
 		>
 			<TaskBubble
 				v-if="currentTaskId !== undefined"

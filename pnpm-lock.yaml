@@ -19,6 +19,7 @@ specifiers:
   jest: ^27.4.5
   lint-staged: ^12.1.3
   map-obj: ^5.0.0
+  nanoid: ^3.1.30
   pinia: ^2.0.0-rc.10
   postcss: ^8.4.5
   prettier: ^2.5.1
@@ -39,6 +40,7 @@ dependencies:
   array-shuffle: 3.0.0
   canvas-confetti: 1.4.0
   map-obj: 5.0.0
+  nanoid: 3.1.30
   pinia: 2.0.0-rc.10_typescript@4.5.4+vue@3.2.26
   vue: 3.2.26
   vue-router: 4.0.12_vue@3.2.26
@@ -49,7 +51,7 @@ devDependencies:
   '@leonzalion/eslint-config': 1.0.47_eslint@8.6.0+typescript@4.5.4
   '@leonzalion/markdownlint-config': 1.0.0
   '@leonzalion/prettier-config': 1.0.2_prettier@2.5.1
-  '@leonzalion/tsconfig': 1.0.10_faf01e1d5a40372a98081522dcafc186
+  '@leonzalion/tsconfig': 1.0.11_faf01e1d5a40372a98081522dcafc186
   '@types/canvas-confetti': 1.4.2
   '@types/jest': 27.4.0
   '@types/node': 17.0.8
@@ -878,8 +880,8 @@ packages:
       - prettier
     dev: true
 
-  /@leonzalion/tsconfig/1.0.10_faf01e1d5a40372a98081522dcafc186:
-    resolution: {integrity: sha512-pta7VWSmY6BvYg7yLKdB58EqVEMqbB3da5A0Rj0WqMvhugD9lDemazeJlQB6YZlgU1+a8jMs1TMrlPyiMaMZ+g==}
+  /@leonzalion/tsconfig/1.0.11_faf01e1d5a40372a98081522dcafc186:
+    resolution: {integrity: sha512-nQUDiTqFuEFAVSBLtTR8mOXIwhS3dey3CBs50w/iibp2rvEhEwkarPT37CCBZIw/f5y4T8ZXySoQ5yi3Zd4Mdg==}
     dependencies:
       ts-node: 10.4.0_faf01e1d5a40372a98081522dcafc186
       tsconfig-paths: 3.12.0

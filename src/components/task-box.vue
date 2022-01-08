@@ -20,7 +20,7 @@ function onDragStart(event: DragEvent) {
 			payload: {
 				source: {
 					type: 'dock',
-					index: store.taskDock.indexOf(props.taskId),
+					row: store.taskIds.indexOf(props.taskId),
 				},
 				taskId: props.taskId,
 			},
@@ -35,6 +35,6 @@ function onDragStart(event: DragEvent) {
 		class="rounded-md w-52 h-10 m-2 center border-2 bg-white border-black column text-center text-xs cursor-grab"
 		@dragstart="onDragStart"
 	>
-		<span class="mt-1">{{ taskInfo.name }}</span>
+		<span class="mt-1">{{ taskInfo?.name }}</span>
 	</div>
 </template>
