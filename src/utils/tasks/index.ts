@@ -1,5 +1,6 @@
 export * from './bosons';
 export * from './define';
+export * from './drop';
 export * from './getters';
 export * from './html';
 export * from './info';

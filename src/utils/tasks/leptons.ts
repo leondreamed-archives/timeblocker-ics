@@ -1,7 +1,7 @@
-import { defineParticles } from './define';
-import { particleMassString as m } from './mass';
+import { defineTasks } from './define';
+import { taskMassString as m } from './mass';
 
-export const leptons = defineParticles('lepton', {
+export const leptons = defineTasks('lepton', {
 	electron: {
 		name: 'Lunch',
 		mass: m({ mass: 0.511, unit: 'MeV' }),

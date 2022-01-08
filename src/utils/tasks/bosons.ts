@@ -1,7 +1,7 @@
-import { defineParticles } from './define';
-import { particleMassString as m } from './mass';
+import { defineTasks } from './define';
+import { taskMassString as m } from './mass';
 
-export const bosons = defineParticles('boson', {
+export const bosons = defineTasks('boson', {
 	gluon: {
 		name: 'Work on TOK Essay',
 		mass: '0',

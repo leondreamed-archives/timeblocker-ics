@@ -1,5 +1,5 @@
 {
-	"name": "fundamental-particles",
+	"name": "fundamental-tasks",
 	"version": "0.0.0",
 	"prettier": "@leonzalion/prettier-config",
 	"commitlint": {

@@ -1,6 +1,6 @@
-import type { ParticleId } from '~/types/particles';
+import type { TaskId } from '~/types/tasks';
 
-export const particlesNamesHtml: Record<ParticleId, string> = {
+export const tasksNamesHtml: Record<TaskId, string> = {
 	up: 'u',
 	down: 'd',
 	charm: 'c',

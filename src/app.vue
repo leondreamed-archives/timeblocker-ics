@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue';
-import ParticleDock from './components/particle-dock.vue';
-import ParticleGrid from './components/particle-grid.vue';
+import TaskDock from './components/task-dock.vue';
+import TaskGrid from './components/task-grid.vue';
 import { useAppStore } from './store/app';
 import { createConfetti } from './utils/confetti';
 
@@ -18,17 +18,19 @@ watch(
 );
 
 // Reset errors when the grid changes
-watch(store.particleGrid, () => {
+watch(store.taskGrid, () => {
 	store.highlightErrors = false;
 	store.isComplete = false;
 });
 </script>
 
 <template>
-	<div class="column h-full">
-		<div class='font-bold text-6xl text-center mt-2'>Schedule</div>
-		<ParticleGrid class="m-auto" />
-		<ParticleDock />
+	<div class="row h-full">
+		<TaskDock />
+		<div class="flex-grow">
+			<div class="font-bold text-6xl text-center mt-2">Schedule</div>
+			<TaskGrid class="m-auto" />
+		</div>
 	</div>
 </template>
 

@@ -1,15 +1,15 @@
-type ParticleMassStringOptions = {
+type TaskMassStringOptions = {
 	mass: number;
 	approx?: boolean;
 	lessThan?: boolean;
 	unit: 'eV' | 'MeV' | 'GeV';
 };
-export const particleMassString = ({
+export const taskMassString = ({
 	mass,
 	lessThan,
 	approx,
 	unit,
-}: ParticleMassStringOptions) => {
+}: TaskMassStringOptions) => {
 	let massString = '';
 	if (approx) {
 		massString += '≈';

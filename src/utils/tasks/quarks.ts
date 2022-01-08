@@ -1,7 +1,7 @@
-import { defineParticles } from './define';
-import { particleMassString as m } from './mass';
+import { defineTasks } from './define';
+import { taskMassString as m } from './mass';
 
-export const quarks = defineParticles('quark', {
+export const quarks = defineTasks('quark', {
 	up: {
 		name: 'Finish ICS Project',
 		charge: '2/3',
